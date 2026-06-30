@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>시편 산책 — 마음의 노래로 하나님을 만나는 길잡이</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Serif+KR:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F1ECDC;
+    --paper-2:#E9E2CD;
+    --ink:#2B2A22;
+    --ink-soft:#56523F;
+    --pine:#1E2B23;
+    --pine-2:#16201A;
+    --reed:#56684A;
+    --reed-light:#8FA37C;
+    --wheat:#B98A3E;
+    --wheat-light:#D8B373;
+    --moss:#DCE3CC;
+    --line:rgba(43,42,34,0.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Noto Serif KR',serif;
+    font-weight:400;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background-image:radial-gradient(rgba(43,42,34,0.035) 1px, transparent 1px);
+    background-size:3px 3px;
+    z-index:1;
+  }
+
+  .eyebrow{
+    font-family:'Noto Sans KR',sans-serif;
+    font-weight:500;
+    font-size:12.5px;
+    letter-spacing:0.22em;
+    color:var(--reed);
+    text-transform:uppercase;
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    background:linear-gradient(180deg,var(--pine) 0%, var(--pine-2) 100%);
+    color:#EFE8D2;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:6rem 1.5rem 4rem;
+    overflow:hidden;
+  }
+  .hero svg.stream-hero{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    opacity:0.55;
+  }
+  .hero-inner{position:relative;z-index:2;max-width:720px;}
+  .hero .eyebrow{color:var(--wheat-light);margin-bottom:1.4rem;display:inline-block;}
+  .hero h1{
+    font-family:'Gowun Batang',serif;
+    font-weight:700;
+    font-size:clamp(48px,9vw,84px);
+    line-height:1.15;
+    letter-spacing:-0.01em;
+    color:#F6F1E0;
+  }
+  .hero .sub{
+    margin-top:1.6rem;
+    font-size:18px;
+    color:#C9C2A6;
+    font-weight:300;
+    max-width:520px;
+    margin-left:auto;
+    margin-right:auto;
+    line-height:1.8;
+  }
+  .hero .verse{
+    margin-top:3rem;
+    font-family:'Gowun Batang',serif;
+    font-size:16px;
+    color:var(--wheat-light);
+    font-style:italic;
+    border-top:1px solid rgba(216,179,115,0.3);
+    padding-top:1.6rem;
+    display:inline-block;
+  }
+  .scrolldown{
+    position:absolute;
+    bottom:2.4rem;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:'Noto Sans KR',sans-serif;
+    font-size:11px;
+    letter-spacing:0.18em;
+    color:#9C9572;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+  }
+  .scrolldown .dash{width:1px;height:30px;background:linear-gradient(#9C9572,transparent);animation:dashmove 1.8s ease-in-out infinite;}
+  @keyframes dashmove{0%{opacity:0;transform:scaleY(0.3);}50%{opacity:1;}100%{opacity:0;transform:scaleY(1);}}
+
+  /* ===== PATH / SPINE ===== */
+  .path-wrap{
+    position:relative;
+    max-width:880px;
+    margin:0 auto;
+    padding:0 1.5rem;
+  }
+  .stream-line{
+    position:absolute;
+    left:38px;
+    top:0;
+    bottom:0;
+    width:2px;
+    z-index:0;
+  }
+  @media (max-width:680px){
+    .stream-line{left:18px;}
+  }
+  .stream-line svg{position:absolute;top:0;left:-1px;height:100%;width:4px;overflow:visible;}
+  .stream-line path{stroke:var(--reed-light);stroke-width:2;fill:none;opacity:0.55;}
+
+  section.walk{
+    position:relative;
+    padding:5.5rem 0 5.5rem 86px;
+    border-top:1px solid var(--line);
+  }
+  @media (max-width:680px){
+    section.walk{padding-left:54px;}
+  }
+  section.walk:first-of-type{border-top:none;}
+
+  .stone{
+    position:absolute;
+    left:26px;
+    top:5.8rem;
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    background:var(--paper);
+    border:2px solid var(--reed);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Noto Sans KR',sans-serif;
+    font-size:11px;
+    font-weight:500;
+    color:var(--reed);
+    z-index:2;
+  }
+  @media (max-width:680px){
+    .stone{left:6px;width:22px;height:22px;font-size:10px;}
+  }
+
+  .walk-label{
+    font-family:'Noto Sans KR',sans-serif;
+    font-size:12px;
+    letter-spacing:0.16em;
+    color:var(--ink-soft);
+    margin-bottom:0.7rem;
+  }
+  .walk h2{
+    font-family:'Gowun Batang',serif;
+    font-weight:700;
+    font-size:clamp(26px,3.6vw,34px);
+    line-height:1.35;
+    color:var(--ink);
+    max-width:600px;
+    margin-bottom:1.6rem;
+  }
+  .walk p{
+    max-width:620px;
+    font-size:16.5px;
+    color:var(--ink);
+    margin-bottom:1.2rem;
+  }
+  .walk p:last-of-type{margin-bottom:0;}
+  .walk .lead{
+    font-size:18px;
+    color:var(--ink-soft);
+    font-weight:300;
+    margin-bottom:1.6rem;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.show{opacity:1;transform:translateY(0);}
+
+  /* small callout box */
+  .note{
+    margin-top:1.8rem;
+    max-width:600px;
+    background:var(--paper-2);
+    border-left:3px solid var(--wheat);
+    padding:1.1rem 1.4rem;
+    font-size:15px;
+    color:var(--ink-soft);
+  }
+
+  /* keyword cards for 르다비드 */
+  .keycards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    max-width:640px;
+    margin-top:1.8rem;
+  }
+  @media (max-width:600px){.keycards{grid-template-columns:1fr;}}
+  .keycard{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    padding:1.2rem 1.1rem;
+    border-radius:2px;
+  }
+  .keycard .en{
+    font-family:'Noto Sans KR',sans-serif;
+    font-weight:500;
+    font-size:13px;
+    letter-spacing:0.06em;
+    color:var(--wheat);
+    margin-bottom:0.5rem;
+  }
+  .keycard .kr{
+    font-family:'Gowun Batang',serif;
+    font-size:17px;
+    color:var(--ink);
+    margin-bottom:0.4rem;
+  }
+  .keycard .desc{font-size:13.5px;color:var(--ink-soft);}
+
+  /* parallelism cards */
+  .parallel-grid{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    max-width:640px;
+    margin-top:1.8rem;
+  }
+  .parallel-card{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    padding:1.3rem 1.5rem;
+  }
+  .parallel-card .name{
+    font-family:'Noto Sans KR',sans-serif;
+    font-weight:500;
+    font-size:14px;
+    color:var(--reed);
+    margin-bottom:0.3rem;
+  }
+  .parallel-card .explain{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    margin-bottom:0.7rem;
+  }
+  .parallel-card .verse{
+    font-family:'Gowun Batang',serif;
+    font-size:16px;
+    color:var(--ink);
+    border-top:1px dashed var(--line);
+    padding-top:0.7rem;
+  }
+  .parallel-card .verse .ab{
+    display:block;
+  }
+  .parallel-card .verse .ref{
+    display:block;
+    margin-top:0.3rem;
+    font-family:'Noto Sans KR',sans-serif;
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+
+  /* carpe diem / memento mori pair */
+  .pair{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    max-width:640px;
+    margin-top:1.6rem;
+  }
+  @media (max-width:600px){.pair{grid-template-columns:1fr;}}
+  .pair div{
+    background:var(--paper-2);
+    border-top:3px solid var(--reed);
+    padding:1.2rem 1.3rem;
+  }
+  .pair div:last-child{border-top-color:var(--wheat);}
+  .pair .latin{
+    font-family:'Gowun Batang',serif;
+    font-style:italic;
+    font-size:16px;
+    color:var(--ink);
+    margin-bottom:0.5rem;
+  }
+  .pair .body-t{font-size:14px;color:var(--ink-soft);}
+
+  /* closing */
+  .closing{
+    background:var(--pine);
+    color:#EFE8D2;
+    padding:6rem 1.5rem 5rem;
+    text-align:center;
+  }
+  .closing-inner{max-width:560px;margin:0 auto;}
+  .closing h3{
+    font-family:'Gowun Batang',serif;
+    font-size:clamp(26px,4vw,34px);
+    margin-bottom:1.4rem;
+    color:#F6F1E0;
+  }
+  .closing p{
+    color:#C9C2A6;
+    font-weight:300;
+    font-size:15.5px;
+    margin-bottom:0.8rem;
+  }
+  .closing .final{
+    margin-top:2.2rem;
+    font-family:'Gowun Batang',serif;
+    font-size:19px;
+    color:var(--wheat-light);
+    border-top:1px solid rgba(216,179,115,0.3);
+    padding-top:1.8rem;
+  }
+
+  footer{
+    text-align:center;
+    padding:2.4rem 1.5rem;
+    font-family:'Noto Sans KR',sans-serif;
+    font-size:12px;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+    background:var(--paper);
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <svg class="stream-hero" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+    <path d="M -50 600 Q 200 500 400 580 T 800 520 T 1250 600" stroke="#8FA37C" stroke-width="2" fill="none" opacity="0.35"/>
+    <path d="M -50 680 Q 250 600 450 660 T 850 600 T 1250 680" stroke="#B98A3E" stroke-width="1.4" fill="none" opacity="0.25"/>
+    <path d="M -50 520 Q 180 440 380 500 T 780 440 T 1250 510" stroke="#8FA37C" stroke-width="1" fill="none" opacity="0.18"/>
+  </svg>
+  <div class="hero-inner">
+    <span class="eyebrow">시가서 묵상 안내</span>
+    <h1>시편 산책</h1>
+    <p class="sub">마음의 노래로 하나님을 만나는 올바른 길잡이</p>
+    <p class="verse">"시냇가에 심은 나무가 철을 따라 열매를 맺나니" — 시편 1편</p>
+  </div>
+  <div class="scrolldown"><span>아래로 걷기</span><span class="dash"></span></div>
+</section>
+
+<div class="path-wrap">
+  <div class="stream-line">
+    <svg viewBox="0 0 4 100" preserveAspectRatio="none">
+      <path d="M 2 0 Q 0 12 2 24 Q 4 36 2 48 Q 0 60 2 72 Q 4 84 2 96 L 2 100" vector-effect="non-scaling-stroke"/>
+    </svg>
+  </div>
+
+  <section class="walk" id="s1">
+    <div class="stone">1</div>
+    <div class="reveal">
+      <div class="walk-label">시작하며</div>
+      <h2>시가서와 시편의 전략적 가치</h2>
+      <p class="lead">신앙의 건강은 영적 양식의 균형 잡힌 섭취에서 시작됩니다.</p>
+      <p>오늘날 한국 교회의 현실을 보면 특정 본문에만 매몰되는 ‘영적 편식 현상’이 뚜렷합니다. 로마서의 논리나 요한복음의 영성에 치우친 나머지, 욥기·시편·잠언·전도서·아가로 구성된 ‘시가서’의 전략적 가치는 소외되곤 합니다. 시가서는 교리적 지식을 넘어, 메마른 신앙에 생명력을 불어넣는 ‘필수 영양제’와 같습니다.</p>
+      <p>성경의 본질은 ‘계시’, 곧 커튼 뒤에 숨겨진 하나님의 뜻이 밝히 드러나는 것입니다. 하나님은 율법과 예언뿐 아니라 ‘시와 노래’라는 문학적 그릇을 통해서도 당신의 마음을 전달하셨습니다. 시편은 하나님의 계시에 대한 인간의 가장 뜨거운 반응을 담고 있다는 점에서 독보적인 위치를 점합니다.</p>
+    </div>
+  </section>
+
+  <section class="walk" id="s2">
+    <div class="stone">2</div>
+    <div class="reveal">
+      <div class="walk-label">시편의 본질</div>
+      <h2>땅에서 하늘로 올리는 인간의 응답</h2>
+      <p>성경이 하나님의 말씀으로 권위를 갖는 경로는 셋입니다. 첫째는 ‘하늘에서 땅으로’ 임하는 토라와 예언서, 둘째는 ‘사람에서 사람으로’ 전해지는 서신서와 지혜문학, 그리고 셋째가 바로 시편의 경로인 ‘땅에서 하늘로’ 향하는 언어입니다.</p>
+      <p>시편은 본래 인간이 하나님께 올린 찬양과 비명, 탄식의 언어였습니다. 이것이 어떻게 하나님의 말씀이 될 수 있었을까요? 하나님께서 인간의 정직한 고백을 기쁘게 ‘열납’하셨기 때문입니다. 시편은 ‘곡조 있는 기도’이자 구체적인 역사적 ‘상황성’을 지닌 본문입니다.</p>
+      <div class="note">시편을 통해 우리는 인간의 비천한 언어가 어떻게 거룩한 계시로 승화되는지를 목격하며, 우리의 기도 역시 하나님의 말씀으로 받아들여질 수 있다는 위로를 얻습니다.</div>
+    </div>
+  </section>
+
+  <section class="walk" id="s3">
+    <div class="stone">3</div>
+    <div class="reveal">
+      <div class="walk-label">구조와 편집</div>
+      <h2>토라를 향한 응답, 그 편집의 비밀</h2>
+      <p>시편 150장은 우연히 모인 시 모음집이 아니라, 철저한 신학적 기획 아래 편집된 ‘응답의 책’입니다. 시편이 총 5권으로 나뉘어 있는 이유는 하나님의 말씀인 ‘토라(모세오경)’ 5권에 대응하기 위함입니다. 하나님께서 토라로 말씀하시면 인간은 5권의 시편으로 응답하는 거룩한 대칭 구조입니다.</p>
+      <p>유대교는 토라를 3년 주기로 낭독하며 전체를 153개 단락으로 나누었습니다. 이에 맞춰 시편도 153장이 되어야 마땅하나, 가장 긴 119편(176절)을 4주에 걸쳐 나누어 낭독하는 과정에서 최종 150장으로 조정되었습니다. 이 구조는 시편이 철저히 ‘하나님의 말씀에 대한 경청과 응답’이라는 틀 안에서 형성되었음을 증명합니다.</p>
+    </div>
+  </section>
+
+  <section class="walk" id="s4">
+    <div class="stone">4</div>
+    <div class="reveal">
+      <div class="walk-label">표제와 저자</div>
+      <h2>‘르 다비드’가 품은 세 가지 의미</h2>
+      <p>시편의 표제는 단순한 부록이 아니라 본문의 일부이자 해석의 렌즈입니다. 히브리어 성경에서 표제는 엄연히 1절 혹은 2절로 취급되며, 시의 배경과 저자, 악상을 제공하는 결정적인 열쇠입니다. ‘다윗의 시’라는 표현 속 히브리어 전치사 ‘르(Le)’는 세 가지 다층적 의미를 지닙니다.</p>
+      <div class="keycards">
+        <div class="keycard">
+          <div class="en">OF — 저작</div>
+          <div class="kr">다윗이 직접 쓴 시</div>
+          <div class="desc">실제로 다윗 본인이 기록한 경우</div>
+        </div>
+        <div class="keycard">
+          <div class="en">TO — 헌정</div>
+          <div class="kr">다윗에게 바친 시</div>
+          <div class="desc">상징적 인물 다윗에게 헌정된 경우</div>
+        </div>
+        <div class="keycard">
+          <div class="en">FOR — 주인공</div>
+          <div class="kr">다윗을 기리는 시</div>
+          <div class="desc">다윗의 삶을 주제로 지은 경우</div>
+        </div>
+      </div>
+      <div class="note">시편 90편의 표제는 ‘모세의 기도’이지만 본문은 인간 수명을 70~80세로 노래합니다. 120세를 산 모세의 생애와는 다릅니다. 모세에게 헌정되었거나 그를 주인공으로 삼은 시로 읽을 때, 더 깊은 묵상이 열립니다.</div>
+    </div>
+  </section>
+
+  <section class="walk" id="s5">
+    <div class="stone">5</div>
+    <div class="reveal">
+      <div class="walk-label">언어적 비밀</div>
+      <h2>의미가 운율이 되는 ‘평행법’</h2>
+      <p class="lead">영어 시나 한국 시가 ‘소리의 운율’을 맞춘다면, 히브리 시의 가장 큰 특징은 ‘사상(의미)의 운율’을 맞추는 평행법에 있습니다.</p>
+      <p>소리는 번역 과정에서 사라지지만, 의미는 언어의 장벽을 뛰어넘어 오늘 우리에게도 고스란히 전달됩니다. 평행법은 보통 두 줄(A행과 B행)이 짝을 이루어 하나의 진리를 깊고 풍성하게 묵상하도록 이끕니다.</p>
+      <div class="parallel-grid">
+        <div class="parallel-card">
+          <div class="name">동의적 평행법</div>
+          <div class="explain">앞 구절의 의미를 뒤 구절이 비슷한 다른 단어로 반복하여 강조합니다.</div>
+          <div class="verse">
+            <span class="ab">여호와여 내 기도를 들으시며</span>
+            <span class="ab">내 간구에 귀를 기울이소서</span>
+            <span class="ref">시편 39:12</span>
+          </div>
+        </div>
+        <div class="parallel-card">
+          <div class="name">반의적 평행법</div>
+          <div class="explain">앞뒤 구절이 서로 반대되는 개념을 대조하여 진리를 선명하게 드러냅니다.</div>
+          <div class="verse">
+            <span class="ab">여호와께서 아시는 바 되나</span>
+            <span class="ab">악인들의 길은 망하리로다</span>
+            <span class="ref">시편 1:6</span>
+          </div>
+        </div>
+        <div class="parallel-card">
+          <div class="name">종합적(발전적) 평행법</div>
+          <div class="explain">뒷 구절이 앞 구절의 사상을 이어받아 논리적으로 더 발전시키고 완성합니다.</div>
+          <div class="verse">
+            <span class="ab">여호와는 나의 목자시니</span>
+            <span class="ab">내게 부족함이 없으리로다</span>
+            <span class="ref">시편 23:1</span>
+          </div>
+        </div>
+      </div>
+      <div class="note">평행법은 성도를 ‘깊은 묵상의 자리’로 초대합니다. 첫째 줄을 읽고 둘째 줄에서 그 의미를 다시 곱씹으며, 그 말씀이 ‘지금 여기’ 내 삶에 어떻게 적용되는지 성찰하게 만드는 탁월한 영적 훈련의 도구입니다.</div>
+    </div>
+  </section>
+
+  <section class="walk" id="s6">
+    <div class="stone">6</div>
+    <div class="reveal">
+      <div class="walk-label">정직한 신앙</div>
+      <h2>탄식시의 가치와 신정론적 고민</h2>
+      <p>시편의 절반 가까이를 차지하는 ‘탄식시’는 성도의 현실과 신앙 사이의 거대한 간극을 메우는 영적 가교입니다. 전통적인 ‘신명기 신학(인과응보)’은 순종하면 복을 받는다고 가르치지만, 실제 삶에는 의인이 고난받고 하나님이 침묵하시는 ‘빈틈’과 ‘여백’이 존재합니다.</p>
+      <p>“하나님이 살아 계시다면 왜 악인이 득세하는가?” 시편은 이 질문에 세련된 정답을 내놓기보다, 하나님의 부재를 경험하는 ‘신음하는 욥’과 같은 이들의 고통을 정직하게 쏟아냅니다. 하나님은 정형화된 찬양뿐 아니라, 고통 속에서 터져 나오는 날 것 그대로의 탄식과 원망까지도 기도로 인정하시며 귀를 기울이십니다.</p>
+      <div class="note">현대 예배가 지나치게 서정적인 찬양에만 매몰되지 않고, 삶의 구체적인 상황성이 담긴 정직한 탄식을 회복해야 하는 이유가 여기 있습니다.</div>
+    </div>
+  </section>
+
+  <section class="walk" id="s7">
+    <div class="stone">7</div>
+    <div class="reveal">
+      <div class="walk-label">삶의 적용</div>
+      <h2>‘오늘’을 향한 발걸음</h2>
+      <p>시편의 지혜는 우리를 ‘역사적 중간기’를 살아가는 성도의 바른 태도로 안내합니다.</p>
+      <div class="pair">
+        <div>
+          <div class="latin">Carpe Diem</div>
+          <div class="body-t">오늘을 붙잡음. 행복을 먼 미래로 유예하지 말고, 오늘 하나님이 허락하신 일상의 은총을 기쁨으로 향유하십시오.</div>
+        </div>
+        <div>
+          <div class="latin">Memento Mori</div>
+          <div class="body-t">죽음을 기억함. 인생의 유한함을 깨달을 때 우리는 하나님의 최종적인 판단 앞에 겸허히 설 수 있습니다.</div>
+        </div>
+      </div>
+      <p style="margin-top:1.8rem">성도는 영과 육, 성과 속을 나누는 헬레니즘적 이원론을 버리고, 일상 전체가 하나님 앞에서의 거룩한 삶이 되는 일원론적(헤브라이즘) 관점을 회복해야 합니다. 하나님은 하늘에만 계시지 않고 우리가 발 딛고 선 땅 위, 정사와 권세가 충돌하는 모든 영역에 관심을 두십니다. 우리의 일상은 하나님께 드려지는 가장 거룩한 산 제물이 되어야 합니다.</p>
+    </div>
+  </section>
+
+  <section class="walk" id="s8">
+    <div class="stone">8</div>
+    <div class="reveal">
+      <div class="walk-label">맺음말</div>
+      <h2>살아있는 말씀과 함께 걷는 삶</h2>
+      <p>시편은 머리로 분석하는 텍스트가 아니라, 가슴으로 부르는 노래이자 생명력 있는 호흡입니다. 시편의 기자들은 고난의 이유를 다 알지 못하는 절망의 순간에도, 오직 하나님의 살아 계심 그 자체로 만족하며 소망을 발견했습니다. 신앙의 신비는 결과의 성취보다 하나님과 동행하는 과정 속에서 발견됩니다.</p>
+      <p>이제 성경을 배우는 것에 머물지 말고, 실제적인 영성 훈련을 시작해 보십시오. 여러분의 정직한 기도를 녹음하고, 곡조를 붙여 여러분만의 시편을 만들어 보십시오. 시편의 언어가 여러분의 언어가 될 때, 말씀은 비로소 여러분의 삶에서 맥동하기 시작할 것입니다.</p>
+    </div>
+  </section>
+</div>
+
+<div class="closing">
+  <div class="closing-inner">
+    <h3>이제 시편 1편을 펼치십시오</h3>
+    <p>시냇가에 심겨 철을 따라 열매를 맺는 ‘복 있는 사람’의 여정이</p>
+    <p>바로 지금 여러분 앞에 펼쳐질 것입니다.</p>
+    <div class="final">함께 걸어가는 시편 산책, 오늘 그 첫걸음을 떼어봅니다.</div>
+  </div>
+</div>
+
+<footer>시편 산책 — 말씀 묵상 공동체를 위한 안내서</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.15});
+  els.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
